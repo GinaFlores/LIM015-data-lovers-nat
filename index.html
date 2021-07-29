@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <script src="https://kit.fontawesome.com/2d09545b84.js" crossorigin="anonymous"></script>
+  </head>
+  <body >
+    <header class="header">
+      <nav class="nav">
+        <figure class="logo">
+          <img src="./img/studio_ghibli_logo.png" alt="">
+        </figure>
+        <span class="btn-menu">
+          <i class="fas fa-bars"></i>
+        </span>
+        <ul class="nav-menu show">
+          <li class="nav-list">
+            <a id="animes" href="index.html" class="nav-link">Collection</a>
+          </li>
+          <li class="nav-list">
+            <a id="personajes" href="#" class="nav-link">Characters</a>
+          </li>
+          <li class="nav-list">
+            <a id="ranking" href="#grafics" class="nav-link">Ranking</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="home-main" id="home-main">
+
+      <!-- SECCION COLLECTION -->
+      <section class="home" id="home">
+        <!--<div id="animaciones" >
+          <img src="./img/animacion1.gif" alt="">
+        </div>-->
+        <div class="containerMenuBar">
+          <div class="list-title" id="list">
+            <p id="list">List studio Ghibli</p>
+          </div>
+          <div class="menuBar">
+            <div class="filter-movie">
+              <select name="" id="best-films-list" class="filter-box" >
+                <option disabled selected>--Filter by director--</option>
+                <option value="Hayao Miyazaki" id="direct1">Hayao Miyazaki</option>
+                <option value="Isao Takahata" id="direct2">Isao Takahata </option>
+                <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+                <option value="Hiroyuki Morita">Hiroyuki Morita </option>
+                <option value="Gorō Miyazaki">Gorō Miyazaki </option>
+                <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+              </select>
+            </div>
+            <div class="filter-movie">
+              <select name="" id="list-order" class="filter-box">
+                <option disabled selected>--Order by years--</option>
+                <option value="upward" id="upward">Upward</option>
+                <option value="falling" id="falling">Falling</option>
+              </select>
+            </div>
+            <div class="search">
+              <input type="text" name="search" id="search" placeholder="Search movie titles">
+              <input type="button" class="button"  id="btn" value="Buscar">
+              <div id="mensaje-error" class="mensaje-error">Enter text in the movie search engine </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-collection" id="container-animes"></div>
+        <div id="orden">
+        </div>
+        <div id="root"></div>
+      </section>
+    </main>
+
+    <main class="characters-home" id="characters-main">
+      <!-- SECCION CHARACTERS -->
+      <section class="characters" id="characters">
+        <div class="container-filter-characters" id="container-filter-characters">
+          <div class="filter-characters">
+            <select  id="filter-by-species" class="filter-box">
+                <option disabled selected>--Filter by species--</option>
+                <option value="Human">Human</option>
+                <option value="Totoro">Totoro</option>
+                <option value="Cat">Cat</option>
+                <option value="Witch">Witch</option>
+                <option value="Raccoon Dog">Raccoon Dog</option>
+                <option value="Red elk">Red elk</option>
+                <option value="Spirit">Spirit</option>
+                <option value="Wolf">Wolf</option>
+                <option value="Deity, Dragon">Deity, Dragon</option>
+                <option value="Spirit of The White Fox">Spirit of The White Fox</option>
+                <option value="unknown">unknown</option>
+                <option value="Bird">Bird</option>
+                <option value="Wizard">Wizard</option>
+                <option value="Witch/Human">Witch/Human</option>
+                <option value="Human/Scarecrow">Human/Scarecrow</option>
+                <option value="Dog">Dog</option>
+                <option value="Arch-mage/Human">Arch-mage/Human</option>
+                <option value="Fish/Human">Fish/Human</option>
+                <option value="Deity">Deity</option>
+                <option value="Borrower">Borrower</option>
+            </select>
+          </div>
+          <div class="filter-characters">
+            <select id="order-by-alphabet" class="filter-box">
+              <option disabled selected>--Order by alphabet--</option>
+              <option value="A-Z">A-Z</option>
+              <option value="Z-A">Z-A</option>
+            </select>
+          </div>
+        </div>
+        <div class="container-characters" id="container-characters"></div>
+      </section>
+    </main>
+
+    <!--modal de detalles de peliculas -->
+
+    <section  class="modalDialog">
+
+      <section  class="sectionModal">
+        <div title="Close" id="close" class="close">CLOSE</div>
+        <div class="containerModal">
+          <div class="image">
+            <figure>
+              <img  class="pictureMovie">
+            </figure>
+          </div>
+            <div class="modalDetails">
+            <div class="titleFilms">title</div>
+            <div class="pDescription">description</div>
+            <div class="rtScore" >
+            </div>
+              <li class="pDirector">
+                <p><strong>Director:</strong> director</p>
+              </li>
+              <li class="pProducer">
+                <p><strong>Producer: </strong>pdato.producer</p>
+              </li>
+              <li class="RealseDate">
+                <p ><strong>Realse Date: </strong>dato.release_date</p>
+              </li>
+          </div>
+        </div>
+        <div class="tabsContainerDetails"  >
+          <div class="tabsboton">
+            <ul class="tabs">
+              <li class="active" data-target="panel-1" ><i class="fas fa-users"></i>
+                CHARACTER
+              </li>
+              <li data-target="panel-2" ><i class="fas fa-map-marker-alt"></i>
+                LOCATIONS
+              </li>
+              <li data-target="panel-3"  ><i class="fas fa-helicopter"></i>
+                VEHICLES
+              </li>
+            </ul>
+          </div>
+          <div class="tabs-content">
+            <div class="tabs-panel active" id="panel-1">
+              <p>
+                VER PERSONAJES
+              </p>
+            </div>
+            <div class="tabs-panel" id="panel-2">
+              <p>
+                VER LOCACIONES
+              </p>
+            </div>
+            <div class="tabs-panel" id="panel-3">
+              <p>
+                VER VEHICLES
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="modalPersonajes">
+
+    </section>
+
+    <section id="grafics" style="display: none;">
+        <div id="graficsSpan">
+        <span > the highest grossing movies of studio ghibli</span>
+
+      </div>
+
+
+        <div class="graficsDiv">
+          On June 15, 1985, four visionary Japanese artists decided to pull the blanket over their heads and break away from the big animation studios to create something new, a new way of making movies and telling stories. They were Hayao Miyazaki, Isao Takahata, Toshio Suzuki and Yasuyoshi Tokuma, the founders of the from the dream factory called Studios Ghibli. <br><br><br> Next we show you the highest grossing films according to the rating of their fans
+        </div>
+
+      <canvas id="myChart" width="400" height="400">
+
+      </canvas>
+
+    </section>
+
+    <script src="https://kit.fontawesome.com/a07f6fa05e.js" crossorigin="anonymous"></script>
+    <script src="main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.js"></script>
+
+  </body>
+
+  <footer>
+    <div class="footer-text">
+        <p>© 2021 By Gina &#38 Nina</p>
+    </div>
+</footer>
+</html>
+
