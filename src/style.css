@@ -47,9 +47,7 @@ body {
 .nav-menu.show {
     top: 100px;
 }
-/* .nav-menu.oculto {
-    left: -200px;
-} */
+
 .nav-list {
     padding: 0px 50px 0px 0px;
 }
@@ -121,7 +119,6 @@ input[type="text"]:focus {
     cursor: pointer;
 }
 
-
 .container-mensaje-error {
     display: flex;
     position: relative;
@@ -130,51 +127,20 @@ input[type="text"]:focus {
     text-align: center;
     font-size: 1.5rem;
     padding: auto;
-
-    
 }
-
 
 .mensaje-error {
     display: none;
     position: relative;
     color:#D6E8EB;
     padding: auto;
-
-
 }
 
 .mensaje-correcto {
     display: block;
     position: relative;
 }
-.welcome-main {
-    background-image: url(./img/Image-Studio-ghibli.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-.welcome-main::before {
-    content: "";
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    position: absolute;
-    opacity: 0.5;
-}
-.text {
-    position: relative;
-    color: white;
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 20px 10px;
-}
-.button-welcome {
-    display: flex;
-    justify-content: center;
-}
+
 .list-title p {
     color: white;
     text-align: center;
@@ -182,20 +148,7 @@ input[type="text"]:focus {
     font-weight: bold;
     padding: 10px 0px;
 }
-.button-welcome a {
-    background-color: #00283A;
-    position: relative;
-    border: 1px solid #00283A;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    width: 18%;
-    padding: 12px;
-    margin-top: 12px;
-}
+
 option {
     cursor: pointer;
 }
@@ -214,6 +167,9 @@ option {
     box-shadow: 0 0 0.313rem white;
     transition: all 0.5s ease;
 }
+.container-card:hover {
+    cursor: pointer;
+}
 .container-card:hover,
 .card-characters:hover,
 .card-location:hover,
@@ -227,7 +183,6 @@ option {
     background-attachment: fixed;
     background-position-x: center;
     background-size: cover;
-
 }
 .image-poster {
     width: 100%;
@@ -291,11 +246,7 @@ option {
     margin: 2rem;
     justify-items: center;
     position: relative;
-
 }
-
-
-
 
 .card-characters,
 .card-location,
@@ -334,13 +285,7 @@ footer {
 
 /* mostrador de detalles de peliculas */
 
-
-
-
-
 .modalDialog {
-    
- 
     display:none;
     position: fixed;
     z-index: 999;
@@ -354,27 +299,20 @@ footer {
     animation-duration:1s;
 }
 
-
 @keyframes modalDialog{
-
     from{top:-330px;opacity:0;}
     to{top:0; opacity: 1;}
 }
 
-
 .modalDialog-details{
-
     transition: 2s;
     transform: translate();
 }
-
 
 /*.modalDialog:target {
     opacity:1;
     pointer-events: auto;
 }*/
-
-
 
 .modalDialog > section {
     max-width: 90vw;
@@ -388,7 +326,6 @@ footer {
 }
 
 .modalDialog .close {
-    
     font-family: Arial, Helvetica, sans-serif;
     background:#00283A;
     color: #fff;
@@ -408,7 +345,6 @@ footer {
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
     padding-top: 10px;
-    
 }
 
 .close:hover {
@@ -425,14 +361,10 @@ footer {
     position: relative;
 }
 
-
-
 .pictureMovie {
     box-shadow: 2px  2px 2px 2px rgb(109, 14, 104);
     border-radius: 10px;
-    
 }
-
 
 .sectionModal .titleFilms {
     font-size: 1.5rem;
@@ -486,10 +418,6 @@ footer {
     margin-bottom: 0.4em;
 }
 
-
-
-
-
 /*tabs de mostrador de detalles */
 
 #orden {
@@ -497,8 +425,6 @@ footer {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap");
-
-
 
 .tabsboton {
     max-width: 800px;
@@ -510,7 +436,6 @@ footer {
     letter-spacing: 1px;
     transition: 0.5s;
 }
-
 
 .tabs {
     background-color:darkgoldenrod;
@@ -589,18 +514,13 @@ footer {
     word-wrap: break-word;
     align-items: center;
     margin: 4rem;
-
-
-    
-
 }
-
 
 .graficsDiv{
 
     font-size:15px;
     color:black;
-    text-align: center;
+    text-align: justify;
     font-size: 1.8rem;
     font-weight: 400;
     padding: 1px;

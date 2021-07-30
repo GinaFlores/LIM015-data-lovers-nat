@@ -1,12 +1,9 @@
 
 /*import { Chart } from 'chart.js';*/
 
-
-
 import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
 
 import data from "./data/ghibli/ghibli.js";
-
 
 
 const contenedorFiltrado = document.getElementById("root");
@@ -41,8 +38,6 @@ const CardLocationFilm = document.getElementById("panel-2");
 const CardVehiclesFilm = document.getElementById("panel-3");
 
 
-
-
 //mostrar la lista de peliculas en la pantalla principal
 
 let dataFilms = data.films;
@@ -57,8 +52,8 @@ function mostrarFilms(dato) {
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
     <div class="container-card" id="${dato.id}">
-        
-        <div> <img  src= '${dato.poster}' class="image-poster"></img> </div>       
+
+        <div> <img  src= '${dato.poster}' class="image-poster"></img> </div>
         <div class="post-dato">
             <span class="title">${dato.title}</span><br>
             <span class="release">${"(" + dato.release_date + ")"}</span>
@@ -71,22 +66,18 @@ function mostrarFilms(dato) {
     let idFilms = cardAnime.firstElementChild.id;
     modalDialog.style.display="block";
     most(idFilms);
-    
+
     });
 
     return cardAnime;
 }
 
 
-
-
-//mostrador de modal 
+//mostrador de modal
 
 close.addEventListener("click", function (){
-    //console.log("cerrar");
     modalDialog.style.display="none";
 
-    
 });
 
 
@@ -99,17 +90,11 @@ window.addEventListener("click",function (e){
 })
 
 
-
-
-
 //funcion para detalles de peliculas con sus locaciones y personajes
 function most(idFilms) {
 
     //identifique la pelicula seleccionada
     let dataFiltrado = filterById(idFilms,dataFilms);
-    //console.log(dataFiltrado);
-    
-    
 
     // muestre los datos en mi modal de detalles
     titleFilms.innerHTML= dataFiltrado[0].title;
@@ -118,18 +103,18 @@ function most(idFilms) {
     rtScore.innerHTML= `<img   src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
     <strong>Rt_Score:</strong> <span>` + dataFiltrado[0].rt_score+ "</span> </div>";
     pirector.innerHTML= "<strong>Director: </strong>"+ dataFiltrado[0].director;
-    
+
     pProducer.innerHTML= "<strong>Producer: </strong>"+dataFiltrado[0].producer;
     pRealseDate.innerHTML= "<strong>Date: </strong>"+dataFiltrado[0].release_date;
 
     //data de  sus personajes
 
     let dataPerson=dataFiltrado[0].people;
-    
+
 
     CardPeopleFilm.innerHTML="";
     peopleShow(CardPeopleFilm,dataPerson);
-    
+
 
     //data de location
 
@@ -162,13 +147,9 @@ function filterDirectors() {
     limpieza ();
      //containerAnimes.style.display="none";  //oculta el cuadro de animes totales
     let selectedDirector = valorSeleccionado.value;
-     //console.log (valor);
     let directorFilms = filterByDirector(selectedDirector,dataFilms)//filtra las peliculas que incluyes el director seleccioando
-	//console.log(dire);
     directorFilms.forEach(mostrarFilms);
 }
-
-
 
 
 // peliculas ordenados por año
@@ -181,9 +162,6 @@ function sortYear() {
 	let orderedMovie = orderByYears(selectedOption,dataFilms);
 	orderedMovie.forEach(mostrarFilms);
 }
-
-
-
 
 
 //Buscador de peliculas
@@ -207,7 +185,7 @@ const movieSearch = () => {
     if(nombreTitle.length > 0) {
         limpieza();
         nombreTitle.forEach(mostrarFilms);
-        
+
     }
     else {
         limpieza();
@@ -222,12 +200,7 @@ const movieSearch = () => {
 boton.addEventListener('click', movieSearch);
 
 
-
-
-
-
 // function de mostrador de personajes
-
 
 const characters = document.getElementById("personajes");
 characters.addEventListener("click", mostrarPersonajes);
@@ -258,9 +231,6 @@ function peopleShow (contenedor, datatotal) {
 }
 
 
-
-
-
 function locationShow (contenedor, datatotal) {
 
     datatotal.forEach((ele)=> {
@@ -286,8 +256,6 @@ function locationShow (contenedor, datatotal) {
 
 function vehiclesShow (contenedor, datatotal) {
 
-    
-
     datatotal.forEach((ele)=> {
         const detallesPersonajes = document.createElement("div");
         detallesPersonajes.className = "container-card-characters";
@@ -303,7 +271,7 @@ function vehiclesShow (contenedor, datatotal) {
             </div>
         </div>`;
 
-            
+
         contenedor.appendChild(detallesPersonajes);
     })
 }
@@ -313,8 +281,8 @@ function mostrarPersonajes() {
     charactersHome.style.display="block";
     limpieza();
     document.querySelector(".home").style.display = "none";
-    
-   let totalPersonajes = joinCharacter(dataFilms);
+
+    let totalPersonajes = joinCharacter(dataFilms);
 
     peopleShow(containerCharacters,totalPersonajes);
      //totalPersonajes.forEach(showDataCharacters);
@@ -329,14 +297,11 @@ selectedSpecie.addEventListener("change", filterEspecies);
 function filterEspecies() {
     containerCharacters.innerHTML="";
     let valorEspecie = selectedSpecie.value;
-    const totalPersonajes = joinCharacter(dataFilms);  
-    //console.log(totalPersonajes);
+    const totalPersonajes = joinCharacter(dataFilms);
     let datoCharacter = filterByCharteres(valorEspecie,totalPersonajes);
-    //console.log(datoCharacter);
     peopleShow(containerCharacters,datoCharacter);
     //datoCharacter.forEach((showDataCharacters));
 }
-
 
 
 // funcion de ordenar personajes alfabeticamente
@@ -377,8 +342,7 @@ const removeActiveClass = (el) => {
 };
 
 
-
-// graficos estadisticos 
+// graficos estadisticos
 
 
 ranking.addEventListener("click", function (e){
@@ -390,68 +354,46 @@ const containerAnimes = document.getElementById("container-animes");
     grafics.style.display="block";
 });
 
-
-
-
 const dataFilmsOrder= orderByYears("rtScore",data.films);
 let dataTitle = dataFilmsOrder.map(e=>e.title);
 let dataFilmsRt = (dataFilmsOrder.map(e=>e.rt_score)).map(Number);
 
 
 let ctx= document.getElementById("myChart").getContext("2d");
- totalCaseschart(ctx)
- 
+    totalCaseschart(ctx)
+
 function totalCaseschart(ctx){
 
+    const mychart = new Chart (ctx, {
+            type:'bar',
+            data: {
+                labels: dataTitle,
+                fontSize:10,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
 
-const mychart = new Chart (ctx, {
-        type:'bar',
-        data: {
-            labels: dataTitle,
-            fontSize:10,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(201, 203, 207, 0.2)'
-            
-                ],
-            datasets: [{
-                label:'peliculas taquilleras',
-                data: dataFilmsRt,
-            }]
-        },
-        Options:{
-            title:{
-                text:'highest grossing movies from gibli studio',
-                fontSiZe:10,
-                padding:10,
-                fontColor:'#12619c'
+                    ],
+                datasets: [{
+                    label:'peliculas taquilleras',
+                    data: dataFilmsRt,
+                }]
+            },
+            Options:{
+                title:{
+                    text:'highest grossing movies from gibli studio',
+                    fontSiZe:10,
+                    padding:10,
+                    fontColor:'#12619c'
+            }
         }
-    }
-
-        
     });
-
-    
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 addEventListener('DOMContentLoaded', () => {
